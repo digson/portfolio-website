@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ThemeToggle from "@/app/components/ThemeToggle";
+import ContactForm from "@/app/components/ContactForm";
 
 const SKILLS = [
   {
@@ -90,7 +91,7 @@ export default function Home() {
             <a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Skills</a>
             <a href="#education" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Education</a>
             <a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
-            <a href="mailto:your-email@example.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+            <a href="#contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
             <ThemeToggle />
           </div>
         </nav>
@@ -205,6 +206,22 @@ export default function Home() {
                 </div>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="scroll-mt-20 py-24 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2 className="text-4xl font-bold mb-6 text-slate-800 dark:text-slate-100">Let&apos;s Connect</h2>
+              <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                I&apos;m currently open to new opportunities in Systems Engineering and Cloud Infrastructure. 
+                Whether you have a question or just want to say hi, my inbox is always open.
+              </p>
+            </div>
+            <ContactForm />
           </div>
         </div>
       </section>

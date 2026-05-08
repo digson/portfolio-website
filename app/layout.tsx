@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Chanwoo Oh | Systems Engineer Portfolio",
-  description: "Computer Systems Engineering graduate specializing in low-level architecture and cloud applications.",
+  title: "Chanwoo Oh | Systems & Full-Stack Engineer",
+  description: "Specializing in the intersection of low-level architecture and modern cloud infrastructure.",
 };
 
 export default function RootLayout({
