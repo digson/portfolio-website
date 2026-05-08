@@ -1,17 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chanwoo Oh | Systems Engineer Portfolio
 
-## Getting Started
+A high-performance professional portfolio built for a Systems Engineer, specializing in the intersection of low-level architecture and modern cloud infrastructure.
 
-First, run the development server:
+## 🚀 Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Icons:** Custom SVG Logic
+- **Theming:** System-aware Dark/Light mode toggle
+
+## 🛠 Features
+
+- **Responsive Design:** Optimized for all device sizes with a mobile-first approach.
+- **Sticky Navigation:** Glassmorphism-style header with backdrop-blur effects.
+- **Contextual Skills Arsenal:** Categorized technical skills (Systems, Cloud, Full-Stack) with visual indicators.
+- **Interactive Projects:** Hover-animated project cards linked directly to GitHub repositories.
+- **Smooth Transitions:** Standardized 300ms theme-switching animations across all components.
+
+## 📂 Project Structure
+
+```text
+app/
+ ┣ components/      # Reusable React components (ThemeToggle, etc.)
+ ┣ globals.css      # Tailwind v4 configuration and theme variables
+ ┣ layout.tsx       # Root layout with Metadata API and font optimization
+ ┗ page.tsx         # Main portfolio entry point with data-driven sections
+```
+
+## 💻 Getting Started
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/digson/portfolio-website.git
+cd portfolio-website
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
