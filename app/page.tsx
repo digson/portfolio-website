@@ -4,18 +4,38 @@ import ThemeToggle from "@/app/components/ThemeToggle";
 const SKILLS = [
   {
     category: "Programming Language",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+    ),
     items: ["C/C++", "Java", "Python", "JavaScript/TypeScript", "MySQL/PostgresSQL"]
   },
   {
     category: "Systems & Low-Level",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+      </svg>
+    ),
     items: ["Assembly (ARM/x86)", "RTOS", "Embedded Systems", "Kernel Programming"]
   },
   {
     category: "Cloud & Infrastructure",
-    items: ["Linux (Ubuntu)", "Docker", "Git (Branching, PRs, Merge Conflict Resolution)", "Firebase", "Network Protocols (TCP/IP)"]
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+      </svg>
+    ),
+    items: ["Linux (Ubuntu)", "Docker", "Git", "Firebase", "Network Protocols (TCP/IP)"]
   },
   {
     category: "Full-Stack & Logic",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2zm0 0h16M12 5v14" />
+      </svg>
+    ),
     items: ["TypeScript", "Next.js", "Python", "React", "RESTful APIs"]
   }
 ];
@@ -62,20 +82,22 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-sans transition-colors duration-300">
       {/* Navigation */}
-      <nav className="flex justify-between items-center p-6 max-w-5xl mx-auto">
-        <div className="font-bold text-xl tracking-tight">CHANWOO OH</div>
-        <div className="flex items-center space-x-8 text-sm font-medium text-slate-600 dark:text-slate-400">
-          <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
-          <a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Skills</a>
-          <a href="#education" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Education</a>
-          <a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
-          <a href="mailto:your-email@example.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
-          <ThemeToggle />
-        </div>
-      </nav>
+      <header className="sticky top-0 z-50 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-colors duration-300">
+        <nav className="flex justify-between items-center p-6 max-w-5xl mx-auto">
+          <div className="font-bold text-xl tracking-tight">CHANWOO OH</div>
+          <div className="flex items-center space-x-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+            <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
+            <a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Skills</a>
+            <a href="#education" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Education</a>
+            <a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
+            <a href="mailto:your-email@example.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+            <ThemeToggle />
+          </div>
+        </nav>
+      </header>
 
       {/* Hero Section */}
-      <main className="max-w-5xl mx-auto px-6 pt-20 pb-32">
+      <main className="max-w-5xl mx-auto px-6 pt-20 pb-32 transition-colors duration-300">
         <div className="max-w-3xl">
           <h1 className="text-6xl font-extrabold tracking-tight mb-6">
             Systems Engineer <br />
@@ -96,19 +118,26 @@ export default function Home() {
       </main>
 
       {/* Skills Section */}
-      <section id="skills" className="py-24 bg-slate-50/50 dark:bg-slate-900/20 border-t border-slate-100 dark:border-slate-800 transition-colors">
+      <section id="skills" className="scroll-mt-20 py-24 bg-slate-50/50 dark:bg-slate-900/20 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-slate-800 dark:text-slate-100">Technical Skills</h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100">Technical Skills</h2>
+              <p className="text-slate-500 dark:text-slate-400 mt-2">Specialized in systems architecture and modern cloud stacks.</p>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {SKILLS.map((skillGroup, index) => (
               <div key={index}>
-                <h3 className="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-6">
-                  {skillGroup.category}
-                </h3>
+                <div className="flex items-center gap-3 mb-6 text-blue-600 dark:text-blue-400">
+                  {skillGroup.icon}
+                  <h3 className="text-sm font-bold uppercase tracking-widest">{skillGroup.category}</h3>
+                </div>
                 <ul className="space-y-4">
                   {skillGroup.items.map((skill) => (
-                    <li key={skill} className="flex items-center text-slate-700 dark:text-slate-300 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 mr-3"></span>
+                    <li key={skill} className="flex items-center text-slate-700 dark:text-slate-300 font-medium group cursor-default">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 mr-3 transition-transform group-hover:scale-150 group-hover:bg-blue-500"></span>
                       {skill}
                     </li>
                   ))}
@@ -120,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-24 border-t border-slate-100 dark:border-slate-800 transition-colors">
+      <section id="education" className="scroll-mt-20 py-24 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-12 text-slate-800 dark:text-slate-100">Education</h2>
           <div className="space-y-12">
@@ -150,7 +179,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="bg-slate-50 dark:bg-slate-900/50 py-24 transition-colors">
+      <section id="projects" className="scroll-mt-20 bg-slate-50 dark:bg-slate-900/50 py-24 transition-colors duration-300">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-12 text-slate-800 dark:text-slate-100">Selected Projects</h2>
           
