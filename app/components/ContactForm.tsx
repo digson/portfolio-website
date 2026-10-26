@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "", company: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,11 +18,11 @@ export default function ContactForm() {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "", company: "" });
       } else {
         setStatus("error");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
     }
   };
@@ -66,6 +66,19 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* Honeypot: hidden from people, filled in by spam bots */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+        <label htmlFor="company">Company</label>
+        <input
+          type="text"
+          id="company"
+          tabIndex={-1}
+          autoComplete="off"
+          value={formData.company}
+          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+        />
+      </div>
+
       <button
         type="submit"
         disabled={status === "loading"}
@@ -82,7 +95,7 @@ export default function ContactForm() {
       
       {status === "error" && (
         <p className="text-red-500 text-center font-medium">
-          Something went wrong. Please try again.
+          Something went wrong. Please email me directly at ochanwoo0615@gmail.com.
         </p>
       )}
     </form>

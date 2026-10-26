@@ -1,66 +1,52 @@
-# Chanwoo Oh | Systems Engineer Portfolio
+# Chanwoo Oh | Portfolio
 
-A high-performance professional portfolio built for a Systems Engineer, specializing in the intersection of low-level architecture and modern cloud infrastructure.
+Personal portfolio for an embedded and backend engineer, live at [chanwoooh.com](https://chanwoooh.com).
 
-## 🚀 Tech Stack
+## Tech Stack
 
-- **Framework:** Next.js 15 (App Router)
+- **Framework:** Next.js 16 (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v4
-- **Icons:** Custom SVG Logic
-- **Theming:** System-aware Dark/Light mode toggle
+- **Email:** [Resend](https://resend.com) for the contact form
+- **Theming:** System-aware dark/light mode toggle
 
-## 🛠 Features
+## Features
 
-- **Responsive Design:** Optimized for all device sizes with a mobile-first approach.
-- **Sticky Navigation:** Glassmorphism-style header with backdrop-blur effects.
-- **Contextual Skills Arsenal:** Categorized technical skills (Systems, Cloud, Full-Stack) with visual indicators.
-- **Interactive Projects:** Hover-animated project cards linked directly to GitHub repositories.
-- **Smooth Transitions:** Standardized 300ms theme-switching animations across all components.
+- Responsive layout with sticky, blurred navigation
+- Skills, education and project sections driven by data arrays in `app/page.tsx`
+- Contact form that emails messages through a Next.js Route Handler (`app/api/contact/route.ts`), with input validation and a honeypot field against spam bots
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 app/
- ┣ components/      # Reusable React components (ThemeToggle, etc.)
- ┣ globals.css      # Tailwind v4 configuration and theme variables
- ┣ layout.tsx       # Root layout with Metadata API and font optimization
- ┗ page.tsx         # Main portfolio entry point with data-driven sections
+ ┣ api/contact/route.ts   # POST /api/contact → sends the message with Resend
+ ┣ components/            # ContactForm, ThemeToggle
+ ┣ globals.css            # Tailwind v4 configuration and theme variables
+ ┣ layout.tsx             # Root layout and metadata
+ ┗ page.tsx               # Page content (skills, education, projects, contact)
 ```
 
-## 💻 Getting Started
-
-Clone the repository and install dependencies:
+## Getting Started
 
 ```bash
 git clone https://github.com/digson/portfolio-website.git
 cd portfolio-website
 npm install
-```
-
-Run the development server:
-
-```bash
+cp .env.example .env.local   # then fill in RESEND_API_KEY
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Name | Required | Description |
+|------|----------|-------------|
+| `RESEND_API_KEY` | Yes | API key from the Resend dashboard |
+| `CONTACT_TO_EMAIL` | Yes | Inbox that receives contact-form messages |
+| `CONTACT_FROM_EMAIL` | No | Sender on a domain verified in Resend; defaults to Resend's test sender |
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployed on Vercel. Pushing to `main` triggers a new deployment. Set the environment variables above in **Vercel → Project → Settings → Environment Variables** before deploying.
